@@ -12,15 +12,15 @@ async function main(){
     
     // console.log(newUser)
 
-    const user = await prisma.user.findFirst({
-        where: {
-            id: 4
-        }
-    })
+    // const user = await prisma.user.findFirst({
+    //     where: {
+    //         id: 4
+    //     }
+    // })
     
-    console.log(user)
+    // console.log(user)
 
-    await prisma.user.deleteMany()
+    // await prisma.user.deleteMany()
 }
 
 main()
