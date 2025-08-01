@@ -1,14 +1,15 @@
 import { PrismaClient } from './generated/prisma/client.js'
 import express from 'express'
+import { auhenticateToken } from './middlewares/auth.js'
 
 const prisma = new PrismaClient()
 
 const app = express()
 
-const PORT = process.env.PORT ?? 1234
-
 app.disable('x-powered-by')
 app.use(express.json())
+
+const PORT = process.env.PORT ?? 1234
 
 app.get('/', async (req, res) => {
     res.status(200).send('<h1>Mi super página web</h1>')
@@ -35,6 +36,10 @@ app.post('/users', async (req, res) => {
     } catch (error) {
         res.status(500).json({ error: 'Failed conection to data base'})
     }
+})
+
+app.get('/protected-route', auhenticateToken, (req, res) => {
+    res.send('This is a protected route')
 })
 
 app.listen(PORT, () => {
