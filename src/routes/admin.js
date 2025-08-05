@@ -4,5 +4,5 @@ import { authenticateToken } from '../middlewares/auth.js'
 
 export const adminRoutes = Router()
 
-adminRoutes.post('/admin/timeblocks', authenticateToken , createTimeblocks)
-adminRoutes.get('/admin/reservations', authenticateToken , listReservations)
+adminRoutes.post('/timeblocks', authenticateToken , createTimeblocks)
+adminRoutes.get('/reservations', authenticateToken , listReservations)

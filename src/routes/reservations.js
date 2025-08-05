@@ -4,7 +4,7 @@ import { createReservation, getReservation, updateReservation, deleteReservation
 
 export const reservationRouter = Router()
 
-reservationRouter.post('/reservations', authenticateToken, createReservation)
-reservationRouter.get('/reservations/:id', authenticateToken, getReservation)
-reservationRouter.put('/reservations/:id', authenticateToken, updateReservation)
-reservationRouter.delete('/reservations/:id', authenticateToken, deleteReservation)
+reservationRouter.post('/', authenticateToken, createReservation)
+reservationRouter.get('/:id', authenticateToken, getReservation)
+reservationRouter.put('/:id', authenticateToken, updateReservation)
+reservationRouter.delete('/:id', authenticateToken, deleteReservation)
