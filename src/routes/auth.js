@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { auhenticateToken } from "../middlewares/auth.js";
+import { authenticateToken } from "../middlewares/auth.js";
 import { register, login } from "../controllers/authController.js";
 
 export const authRoutes = Router()
@@ -7,6 +7,6 @@ export const authRoutes = Router()
 authRoutes.post('/auth/register', register)
 authRoutes.post('/auth/login', login)
 
-authRoutes.get('/protected-route', auhenticateToken, (req, res) => {
+authRoutes.get('/protected-route', authenticateToken, (req, res) => {
     res.send('This is a protected route')
 })
